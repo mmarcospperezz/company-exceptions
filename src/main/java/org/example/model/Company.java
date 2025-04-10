@@ -5,6 +5,7 @@ import lombok.Data;
 import org.example.exceptions.DepartmentNotFound;
 import org.example.exceptions.EmployeeNotFound;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -40,5 +41,14 @@ public class Company {
             }
         }
         throw new EmployeeNotFound(nif);
+    }
+
+    public List<Department> showDepartments(){
+        List<Department> departments = new ArrayList<>();
+        for (Department department : departmentByName.values()) {
+            departments.add(department);
+        }
+        return departments;
+
     }
 }
